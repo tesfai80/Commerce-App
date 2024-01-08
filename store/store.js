@@ -1,16 +1,30 @@
-import { makeAutoObservable } from 'mobx';
-
-class Store {
-  totalAmount = 0;
-
+import { makeAutoObservable,autorun } from 'mobx';
+import storeConfig  from '../src/app/storeConfig.json'
+class MyStore {
+  items = [];
+  total = 0;
+  //vatRate = 1.17;
+  vatRate = 1 + (storeConfig.vatPercent / 100); 
   constructor() {
     makeAutoObservable(this);
+    autorun(() => this.calculateTotal());
   }
 
-  calculateTotal(items) {
-    // Calculation logic
-    this.totalAmount = 100;/* calculated total */
+  addItem(item) {
+    this.items.push(item);
+    this.calculateTotal();
+  }
+  removeItem() {
+    this.items.pop(); 
+    this.calculateTotal();
+  }
+
+
+  calculateTotal() {
+    const subtotal = this.items.reduce((sum, item) => sum + item.price, 0);
+    this.total = subtotal * this.vatRate;
   }
 }
 
-export default new Store();
+const store = new MyStore();
+export default store;

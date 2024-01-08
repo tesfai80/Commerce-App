@@ -1,12 +1,3 @@
-// import React from 'react';
-// import { observer } from 'mobx-react-lite';
-// import store from '../store/store';
-
-// const Test = observer(() => {
-//   return <div>Total Amount: {store.totalAmount}</div>;
-// });
-
-// export default Test;
 
 const Test = () => {
   return (

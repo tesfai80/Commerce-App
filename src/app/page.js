@@ -1,10 +1,14 @@
 
+import Layout from './layout';
+import Cart from './pages/cart';
+import Link from 'next/link';
 
-import Cart from './pages/cart'
 export default function Home() {
   return (
       <div >
        <Cart/>
+       
       </div>
+     
   )
 }
