@@ -1,9 +1,9 @@
 import { makeAutoObservable,autorun } from 'mobx';
 import storeConfig  from '../src/app/storeConfig.json'
+
 class MyStore {
   items = [];
   total = 0;
-  //vatRate = 1.17;
   vatRate = 1 + (storeConfig.vatPercent / 100); 
   constructor() {
     makeAutoObservable(this);
@@ -23,6 +23,7 @@ class MyStore {
   calculateTotal() {
     const subtotal = this.items.reduce((sum, item) => sum + item.price, 0);
     this.total = subtotal * this.vatRate;
+    console.log('autorun')
   }
 }
 
