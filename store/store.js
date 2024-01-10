@@ -27,5 +27,6 @@ class MyStore {
   }
 }
 //add here a autorun
+//git fetch
 const store = new MyStore();
 export default store;
