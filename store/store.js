@@ -26,6 +26,6 @@ class MyStore {
     console.log('autorun')
   }
 }
-
+//add here a autorun
 const store = new MyStore();
 export default store;
