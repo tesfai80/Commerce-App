@@ -7,6 +7,7 @@ import store from '../../../store/store';
 import { observer } from 'mobx-react-lite';
 import sendInvoice from '../pages/api/sendInvoice';
 import { toast } from 'react-toastify';
+import '../styles.css';
 const Cart = observer(() => {
   // const [items, setItems] = useState([{ id: 1, name: 'Item 1', price: 5.00 }]);
   const [items, setItems] = useState([]);
@@ -75,7 +76,6 @@ const Cart = observer(() => {
 
     const notify=()=>{
      // toast(store.total.toFixed(2));
-
       toast.success(store.total.toFixed(2), {
         position: toast.POSITION.TOP_CENTER
       });
@@ -175,8 +175,8 @@ const Cart = observer(() => {
       <div style={totalStyle}>
       Total (incl. VAT): ${store.total.toFixed(2)}
       </div>
-      <Link href="/Test" style={navButtonStyle}>
-        Go to Test Page 1
+      <Link href="/about" style={navButtonStyle}>
+        Go to Test About Page 
       </Link>
      
     </div>
